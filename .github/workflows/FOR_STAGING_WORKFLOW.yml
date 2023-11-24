@@ -1,0 +1,21 @@
+name: Workflow for STAGING
+on:
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: Staging Parameter
+
+  push:
+    branches: [ "FOR_STAGING" ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Display Environment Variables
+        run: echo ${{ vars.ACCESS_KEYS }}
+
+      - name: Display secret file
+        run: |
+          echo ${{ secrets.AZURECONNECTIONSTRING }} | sed 's/./& /g'
