@@ -22,15 +22,11 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 on:
   push:
     branches: [ "FOR_STAGING" ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: staging
     steps:
       - name: Display Environment Variables
         run: echo ${{ env.ACCESS_KEYS }}
