@@ -1,7 +1,10 @@
-name: Build and deploy ASP.Net Core app to an Azure Web App
-
+name: Workflow for STAGING
 on:
   workflow_dispatch:
+    inputs:
+      parameter:
+        description: Staging Parameter
+
   push:
     branches: [ "FOR_STAGING" ]
     
