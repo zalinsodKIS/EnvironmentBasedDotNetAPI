@@ -19,7 +19,7 @@
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "FOR_STAGING" ]
 
 permissions:
   contents: read
