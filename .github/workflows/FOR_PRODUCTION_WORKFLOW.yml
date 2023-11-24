@@ -6,7 +6,7 @@ on:
         description: Staging Parameter
 
   push:
-    branches: [ "FOR_STAGING" ]
+    branches: [ "FOR_PROD" ]
     
 jobs:
   build:
