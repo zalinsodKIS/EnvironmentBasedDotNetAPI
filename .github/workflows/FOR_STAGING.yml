@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Display Environment Variables
-        run: echo ${{ env.AZURECONNECTIONSTRING }}
+        run: echo ${{ env.ACCESS_KEYS }}
 
 #      - name: dotnet publish
 #        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
