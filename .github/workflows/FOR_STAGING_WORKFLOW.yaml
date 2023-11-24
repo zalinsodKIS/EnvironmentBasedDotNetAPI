@@ -1,9 +1,10 @@
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "FOR_STAGING" ]
-
+    
 jobs:
   build:
     runs-on: ubuntu-latest
