@@ -14,12 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Replace secret
+      - run: 'echo "$PROD_APPSETTING" > appsettings.json'
         shell: bash
-        run: |
-           cat appsettings.json | jq --argjson prod_secret $PROD_SECRET '.AppSettings = $prod_secret' > appsettings.json
-        env: 
-          PROD_SECRET: '{"WebSite": "https://portal-test.kineticstaff.com"}'
+        env:
+          PROD_APPSETTING: ${{ secrets.APPSETTING }}
           
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v2
