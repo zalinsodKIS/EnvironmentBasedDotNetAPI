@@ -21,3 +21,11 @@ jobs:
       - name: Display appsetting.json file
         run: |
           cat appsettings.json
+          
+      - name: Replace appsetting.json with PROD values
+        run: |
+          echo ${{ secrets.PRODUCTION }} > appsettings.json
+
+      - name: Display new appsetting.json file
+        run: |
+          cat appsettings.json
