@@ -14,9 +14,6 @@ jobs:
     environment: PRODUCTION
     steps:  
       - uses: actions/checkout@v4
-        with:
-            sparse-checkout: |
-              appsettings.json
 
       - name: App Settings Variable Substitution
         uses: microsoft/variable-substitution@v1
