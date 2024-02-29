@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:  
+      - uses: actions/checkout@v3
+    
       - name: Display appsetting.json file
         run: |
-          cat 'EnvironmentBasedDotNetAPI/appsettings.json' | grep
+          cat '${{env.DOTNET_ROOT}}/appsettings.json'
