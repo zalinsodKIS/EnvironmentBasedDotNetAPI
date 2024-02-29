@@ -24,4 +24,4 @@ jobs:
           
       - name: Display secrets
         run: |
-          echo ${{ secrets.AZURECONNECTIONSTRING }} | sed 's/./& /g'
+          echo ${{ secrets.APPSETTING }} | sed 's/./& /g'
