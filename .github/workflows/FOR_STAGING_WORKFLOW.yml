@@ -13,9 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - name: Display Environment Variables
-        run: echo ${{ vars.ACCESS_KEYS }}
-
-      - name: Display secret file
+      - uses: microsoft/variable-substitution@v1 
+        with:
+            files: '${{env.DOTNET_ROOT}}/appsettings.json'
+        env:
+            SECRET: ${{ secrets.PRODUCTION }}
+    
+      - name: Display appsetting.json file
         run: |
-          echo ${{ secrets.AZURECONNECTIONSTRING }} | sed 's/./& /g'
+          echo ${{env.DOTNET_ROOT}}/appsettings.json | sed 's/./& /g'
