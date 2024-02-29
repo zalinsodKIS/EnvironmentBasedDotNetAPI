@@ -15,4 +15,4 @@ jobs:
     steps:  
       - name: Display appsetting.json file
         run: |
-          cat '${{env.DOTNET_ROOT}}/appsettings.json' | grep
+          cat 'EnvironmentBasedDotNetAPI/appsettings.json' | grep
