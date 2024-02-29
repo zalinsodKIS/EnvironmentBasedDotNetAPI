@@ -15,4 +15,4 @@ jobs:
     steps:  
       - name: Display appsetting.json file
         run: |
-          echo ${{env.DOTNET_ROOT}}/appsettings.json | sed 's/./& /g'
+          cat '${{env.DOTNET_ROOT}}/appsettings.json' | grep
