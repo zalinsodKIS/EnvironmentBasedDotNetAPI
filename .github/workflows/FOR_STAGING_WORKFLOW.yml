@@ -13,8 +13,9 @@ jobs:
     environment: PRODUCTION
     steps:
       - uses: actions/checkout@v4
-      
-      - run: 'echo "$PROD_APPSETTING" > appsettings.json'
+
+      - name: Applying PROD appsettings.json
+        run: 'echo "$PROD_APPSETTING" > appsettings.json'
         shell: bash
         env:
           PROD_APPSETTING: ${{ secrets.APPSETTING }}
