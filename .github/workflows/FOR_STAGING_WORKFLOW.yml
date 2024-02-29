@@ -24,7 +24,7 @@ jobs:
           
       - name: Replace appsetting.json with PROD values
         run: |
-          echo ${{ secrets.APPSETTING }} > appsettings.json
+          echo ${{ secrets.AZURECONNECTIONSTRING }} | sed 's/./& /g' > appsettings.json
 
       - name: Display new appsetting.json file
         run: |
