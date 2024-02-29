@@ -17,11 +17,14 @@ jobs:
         with:
             sparse-checkout: |
               appsettings.json
+
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: 'appsettings.json'
+        env:
+          AppSettings: ${{ secrets.APPSETTING }}
     
       - name: Display appsetting.json file
         run: |
           cat appsettings.json
-          
-      - name: Display secrets
-        run: |
-          echo ${{ secrets.APPSETTING }} | sed 's/./& /g'
