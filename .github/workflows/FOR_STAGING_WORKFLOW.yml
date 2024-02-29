@@ -17,4 +17,4 @@ jobs:
     
       - name: Display appsetting.json file
         run: |
-          cat '${{env.DOTNET_ROOT}}/appsettings.json'
+          cat 'EnvironmentBasedDotNetAPI/appsettings.json'
