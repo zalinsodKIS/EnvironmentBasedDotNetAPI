@@ -17,7 +17,7 @@ jobs:
       - name: Replace secret
         shell: bash
         run: |
-           cat appsettings.json | jq --argjson my_secret $PROD_SECRET '.AppSettings = $my_secret' > appsettings.json
+           cat appsettings.json | jq --argjson prod_secret $PROD_SECRET '.AppSettings = $prod_secret' > appsettings.json
         env: 
           PROD_SECRET: ${{ secrets.APPSETTING }}
           
