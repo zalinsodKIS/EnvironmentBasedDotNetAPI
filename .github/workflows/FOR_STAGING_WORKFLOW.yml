@@ -24,7 +24,7 @@ jobs:
           
       - name: Replace appsetting.json with PROD values
         run: |
-          echo ${{ secrets.PRODUCTION }} > appsettings.json
+          echo ${{ secrets.APPSETTING }} > appsettings.json
 
       - name: Display new appsetting.json file
         run: |
