@@ -12,13 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: staging
-    steps:
-      - uses: microsoft/variable-substitution@v1 
-        with:
-            files: '${{env.DOTNET_ROOT}}/appsettings.json'
-        env:
-            SECRET: ${{ secrets.PRODUCTION }}
-    
+    steps:  
       - name: Display appsetting.json file
         run: |
           echo ${{env.DOTNET_ROOT}}/appsettings.json | sed 's/./& /g'
