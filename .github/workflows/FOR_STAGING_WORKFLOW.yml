@@ -19,7 +19,7 @@ jobs:
         run: |
            cat appsettings.json | jq --argjson prod_secret $PROD_SECRET '.AppSettings = $prod_secret' > appsettings.json
         env: 
-          PROD_SECRET: ${{ secrets.APPSETTING }}
+          PROD_SECRET: '{"WebSite": "https://portal-test.kineticstaff.com"}'
           
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v2
