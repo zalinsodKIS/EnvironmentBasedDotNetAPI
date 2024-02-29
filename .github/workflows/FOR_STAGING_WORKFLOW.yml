@@ -14,12 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: App Settings Variable Substitution
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: appsettings.json
-        env:
-          ${{ secrets.APPSETTING }}
+      - name: Replace secret
+        shell: bash
+        run: |
+           cat appsettings.json | jq --argjson my_secret $PROD_SECRET '.AppSettings = $my_secret' > appsettings.json
+        env: 
+          PROD_SECRET: ${{ secrets.APPSETTING }}
           
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v2
