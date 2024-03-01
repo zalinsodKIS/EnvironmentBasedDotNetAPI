@@ -21,10 +21,7 @@ jobs:
           PROD_APPSETTING: ${{ secrets.APPSETTING }}
 
       - name: Get Release version
-        run: 'echo $VERSION'
-        shell: bash
-        env:
-          VERSION: ${{ github.event.release.tag_name }}
+        run: echo ${{github.run_number}}
           
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v2
