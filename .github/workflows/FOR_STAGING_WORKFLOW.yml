@@ -57,5 +57,5 @@ jobs:
           name: .net-app
 
       - name: Remove Artifacts
-        run: 'rm /EnvironmentBasedDotNetAPI/.net-app'
+        run: 'rm -r .net-app'
         shell: bash
