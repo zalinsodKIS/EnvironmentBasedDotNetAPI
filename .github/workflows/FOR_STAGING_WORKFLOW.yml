@@ -57,6 +57,10 @@ jobs:
     needs: build
     steps:
 
-      - name: Remove Artifacts
-        run: 'ls /home/runner/work/EnvironmentBasedDotNetAPI/EnvironmentBasedDotNetAPI/'
-        shell: bash
+    - name: Output artifact ID
+      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+      
+    - uses: actions/checkout@v4
+    - name: Remove Artifacts
+      run: 'ls /home/runner/work/EnvironmentBasedDotNetAPI/EnvironmentBasedDotNetAPI/'
+      shell: bash
