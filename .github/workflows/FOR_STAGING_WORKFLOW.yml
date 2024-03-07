@@ -56,12 +56,7 @@ jobs:
     runs-on: ubuntu-latest   
     needs: build
     steps:
-
+      - uses: actions/checkout@v4
       - name: Create a different file
-        run: echo "REMOVE ARTIFACT" > my-file.txt
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app # NOTE: same artifact name
-          path: my-file.txt
-          overwrite: true
+        run: ls /home/runner/.dotnet/myapp
+
