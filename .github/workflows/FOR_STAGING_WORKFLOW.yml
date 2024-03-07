@@ -56,8 +56,7 @@ jobs:
     runs-on: ubuntu-latest   
     needs: build
     steps:
-      - uses: actions/checkout@v4
 
       - name: Remove Artifacts
-        run: 'ls /'
+        run: 'ls /home/runner/work/EnvironmentBasedDotNetAPI/EnvironmentBasedDotNetAPI/'
         shell: bash
