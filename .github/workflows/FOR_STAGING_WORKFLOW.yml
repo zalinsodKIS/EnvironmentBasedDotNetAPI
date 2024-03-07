@@ -61,6 +61,6 @@ jobs:
       run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
       
     - uses: actions/checkout@v4
-    - name: Remove Artifacts
-      run: 'ls /home/runner/work/EnvironmentBasedDotNetAPI/EnvironmentBasedDotNetAPI/'
+    - name: Display Directory
+      run: ls ${{env.DOTNET_ROOT}}/myapp
       shell: bash
