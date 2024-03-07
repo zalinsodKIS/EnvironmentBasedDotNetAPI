@@ -54,6 +54,7 @@ jobs:
 
   cleanup:
     runs-on: ubuntu-latest   
+    environment: PRODUCTION
     needs: build
     steps:
 
