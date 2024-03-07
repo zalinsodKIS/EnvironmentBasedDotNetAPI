@@ -55,3 +55,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
+
+      - name: Remove Artifacts
+        run: 'rm /EnvironmentBasedDotNetAPI/.net-app'
+        shell: bash
