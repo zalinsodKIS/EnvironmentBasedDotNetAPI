@@ -54,14 +54,14 @@ jobs:
 
   cleanup:
     runs-on: ubuntu-latest   
-    environment: PRODUCTION
     needs: build
     steps:
 
-    - name: Output artifact ID
-      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
-      
-    - uses: actions/checkout@v4
-    - name: Display Directory
-      run: ls ${{env.DOTNET_ROOT}}/myapp
-      shell: bash
+      - name: Create a different file
+        run: echo "REMOVE ARTIFACT" > my-file.txt
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app # NOTE: same artifact name
+          path: my-file.txt
+          overwrite: true
