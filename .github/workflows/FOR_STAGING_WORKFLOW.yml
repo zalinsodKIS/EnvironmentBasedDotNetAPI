@@ -45,14 +45,23 @@ jobs:
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
 
+      - name: Download artifact for deployment job
+        uses: actions/download-artifact@v3
+        with:
+          name: .net-app
           
 
   cleanup:
     runs-on: ubuntu-latest   
     needs: build
     steps:
-      - uses: actions/checkout@v4
-      - name: Create a different file
-        run: ls /home/runner/.dotnet/myapp
+      - uses: geekyeggo/delete-artifact@v4
+        with:
+          name: .net-app
 
